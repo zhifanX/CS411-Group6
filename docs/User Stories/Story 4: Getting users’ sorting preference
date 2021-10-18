@@ -1,0 +1,11 @@
+Focus: Based on weather recommended restaurant, choose ranking system with preference of ratings (default) or distance
+As a logged in user, after entering a valid location/zip code, I should be able to choose between sorting the list of recommendations with the highest rating or shortest distance (through a sort tab). If I do not choose, the default sorting method would be restaurant rating (provided by our restaurant API).
+
+Exception 1: no restaurants
+As a logged in user, if there is no recommendation based on my location, the application will pop up an error message and advise me to change to a new location.
+
+Exception 2: serious weather condition 
+In this case, the application will pop up a warning message to inform me that serious weather (storm, tornado, hail, etc.) is happening. The message will confirm my decision that I will ignore the weather situation and still go to the restaurant. If I decide not to find a restaurant, a pop up message will suggest switching to a map application. 
+
+Exception 3: sudden weather change
+As a logged in user, I should be notified when the weather predicts a sudden weather change will occur (eg. sudden downpour) at any time during my use of the application. The message will also incorporate a choice to switch highest rating choice to closest distance if I choose to set my preference as rating.
