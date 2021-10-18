@@ -1,0 +1,8 @@
+Focus: Ability to change distance other than recommended distance 
+Users will have the ability to edit the distance for the recommended restaurants they want to see. By default, a suggested distance will be given depending on how the weather is (ie. If it is raining, the distance will be shorter). 
+
+Exception 1: Invalid distance entered
+If the user enters a negative distance or a distance that is too short/too far and does not permit restaurants to properly show up, an error message will be displayed telling them to reset their distance or to choose the default suggested distance.
+
+Exception 2: Multiple Weather Patterns within a distance
+While our application gives suggestions based on weather, if the distance is set too big, there may be different weather conditions within that area causing a conflict in what types of restaurants to display. Therefore, we will pick the area within the distance with the best weather and prioritize those restaurants.
