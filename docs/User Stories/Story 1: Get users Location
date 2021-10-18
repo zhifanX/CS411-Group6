@@ -1,0 +1,8 @@
+**Focus: Checks for user’s location or asks for user’s  location**
+As a logged in user, I should be able to get the list of recommendations based on my location if I choose to give it. I should be able to set the location of my destination if I do not wish to use my current location. By setting the location of my destination I should find it easier to find restaurants close to the destination without having to do further searches.
+
+**Exception 1: application is not given access to use the users location**
+As a logged in user I should be able to decide if I want to give that access to the app. If I do not decide to give the access, then I should be asked to type the in address in. Then the result of the recommendations should be based on the address typed in.
+
+**Exception 2: Invalid address**
+As a logged in user the app should use my address to calculate its recommendations, if I am outside of the area the application can calculate it then an error message should pop up saying that the address is invalid. If I decide to type in the address and if either the address is outside the area the application allows or if the address is mistyped then the error message should also pop up saying that the address is invalid.
