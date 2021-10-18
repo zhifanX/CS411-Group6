@@ -1,0 +1,3 @@
+User login story
+
+I will log into my Smart Menus account and connect to my Google account using third-party authentication. This will allow me to access my user data and log in to use the web app. If login fails, I will receive an error message telling me to redo the process.
