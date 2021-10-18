@@ -1,0 +1,11 @@
+Focus: Ability to choose restaurants sorted by overall best restaurant or weather recommended restaurant
+Users will have the ability to select whether they want the system to display the restaurants by overall restaurant rating or by recommendations based on the weather. By default, the system will recommend the weather recommended restaurant. 
+
+Exception 1: serious weather conditions 
+In this case, our application will display a pop up warning message. In this case, the application will pop up a warning message to inform me that serious weather (storm, tornado, hail, etc.) is happening. The message will confirm my decision that I will ignore the weather situation and still go to the restaurant. If I decide not to find a restaurant, a pop up message will suggest switching to a map application. 
+
+Exception 2: all nearby restaurants have low ratings 
+As a logged in user, if there are only low rated restaurants, the application will recommend the low rated restaurants. I should be able to see or choose from these restaurants. 
+
+Exception 3: holidays 
+As a logged in user, if it is a holiday and there are no restaurants currently open, the application will pop up an error message and advise me to change to a new location. 
