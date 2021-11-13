@@ -13,7 +13,7 @@ def results():
     zip_code = request.form['zipcode']
     api_key = get_api_key()
     data = get_weather(zip_code, api_key)
-    temp = "{0:.2f}".format(data['main']['temp'])
+    temp = int(data['main']['temp'])
     weather = data["weather"][0]["main"]
     location = data["name"]
     return render_template('results.html', location = location, temp = temp, weather = weather) 
