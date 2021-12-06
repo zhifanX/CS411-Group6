@@ -2,8 +2,6 @@ import requests
 import configparser
 
 
-global zip_code
-
 zip_code = 0
 
 def get_api_key():
@@ -14,11 +12,11 @@ def get_api_key():
 
 def businesses(zip):
     global zip_code
-    print(zip_code)
+    global PARAMETERS
     zip_code = zip
-    print(zip_code)
     list = []
-    data = response.json()
+    PARAMETERS['location'] = zip_code
+    data = requests.get(url = ENDPOINT, params = PARAMETERS, headers = HEADERS).json()
     for businesses in data['businesses']:
         list.append(businesses['name'])
     return list
@@ -26,11 +24,7 @@ def businesses(zip):
 
 ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
 HEADERS = {'Authorization': 'bearer %s' % get_api_key()}
-PARAMETERS = {'term': 'coffee',
+PARAMETERS = {'term': 'food',
               'limit': 10,
               'radius': 10000,
-              'location': zip_code}
-
-print(PARAMETERS['location'])
-
-response = requests.get(url = ENDPOINT, params = PARAMETERS, headers = HEADERS)
+              'location': "%d" % zip_code}
