@@ -1,6 +1,46 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Weather Search </title>
+    <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .row {
+      margin-left:-5px;
+      margin-right:-5px;
+    }
+
+    .column {
+      float: left;
+      width: 33%;
+      padding: 5px;
+    }
+
+    /* Clearfix (clear floats) */
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      width: 100%;
+      border: 1px solid #ddd;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 16px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    </style>
   </head>
 
   <body><center>
@@ -8,16 +48,47 @@
     <h3>Temperature is {{temp}}°F and {{weather}}</h3>
     </center>
 
+  <div class = "row">
+ <div class="column">
     <table>
       <tr>
-      <h1>  Restaurant Names </h1>
+        <th><h3>  Restaurant Names </h3></th>
       </tr>
       {% for row in restaurants%}
       <tr>
-      <td>{{row}}</td>
+      <td>{{row}} </td>
       {% endfor %}
-    </tr>
+  </tr>
   </table>
+</div>
+
+ <div class="column">
+  <table>
+    <tr>
+      <th><h3> Link </h3></th>
+    </tr>
+    {% for name in links%}
+    <tr>
+    <td><a href ='{{name}}'> Yelp Link</a></td>
+    {%endfor%}
+</tr>
+</table>
+</div>
+
+<div class="column">
+ <table>
+   <tr>
+     <th><h3> Rating </h3></th>
+   </tr>
+   {% for name in rating%}
+   <tr>
+   <td>{{name}}</td>
+   {%endfor%}
+</tr>
+</table>
+</div>
+</div>
+
     </body>
 
 </html>
