@@ -21,7 +21,6 @@ def businesses(zip):
         list.append(businesses['name'])
     return list
 
-
 ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
 HEADERS = {'Authorization': 'bearer %s' % get_api_key()}
 PARAMETERS = {'term': 'food',

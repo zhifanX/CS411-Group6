@@ -7,7 +7,17 @@
     <h3>Weather in {{location}}</h3>
     <h3>Temperature is {{temp}}°F and {{weather}}</h3>
     </center>
-    {{restaurants}}
+
+    <table>
+      <tr>
+      <h1>  Restaurant Names </h1>
+      </tr>
+      {% for row in restaurants%}
+      <tr>
+      <td>{{row}}</td>
+      {% endfor %}
+    </tr>
+  </table>
     </body>
 
 </html>
