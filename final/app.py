@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from util import weather_api
 from util import yelp_api
+from util import ranking
 
 app = Flask(__name__)
 
@@ -20,7 +21,7 @@ def results():
     temp = int(data['main']['temp'])
     weather = data["weather"][0]["main"]
     location = data["name"]
-    restaurant = yelp_api.businesses(radius, zip_code)
+    restaurant = ranking.sort_by_ranking(ranking.sort_by_takeout(yelp_api.businesses(radius, zip_code)))
     for biz in restaurant:
         names.append(biz["name"])
         links.append(biz["url"])
