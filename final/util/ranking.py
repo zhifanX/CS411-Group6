@@ -14,6 +14,9 @@ def sort_by_weather(weather, biz): '''types of restaurant/food based on weather 
             if "icecream" in x['categories']:
                 if x not in final:
                     final.append(x)
+            elif 'desserts' in x['categories']:
+                if x not in final:
+                    final.append(x)
             elif "markets" in x['categories']:
                 if x not in final:
                     final.append(x)
@@ -50,7 +53,7 @@ def sort_by_takeout(weather, biz): '''give restaurants with takeout option'''
                 final.append(x)
             return final
     else:
-        for fix x in biz:
+        for x in biz:
             final.append(x)
         return final
 
