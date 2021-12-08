@@ -28,6 +28,6 @@ def businesses(rad, zip):
 ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
 HEADERS = {'Authorization': 'bearer %s' % get_api_key()}
 PARAMETERS = {'term': 'food',
-              'limit': 50,
+              'limit': 25,
               'radius': 10000,
               'location': "%d" % zip_code}

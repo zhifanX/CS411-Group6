@@ -13,39 +13,52 @@ def sort_by_weather(weather, biz):
     final = []
     if weather >= 70:
         for x in biz:
-            if "icecream" in x['categories']:
-                if x not in final:
-                    final.append(x)
-            elif 'desserts' in x['categories']:
-                if x not in final:
-                    final.append(x)
-            elif "markets" in x['categories']:
-                if x not in final:
-                    final.append(x)
+            for y in x['categories']:
+                if "icecream" in y['alias']:
+                    if x not in final:
+                        final.append(x)
+                elif 'desserts' in y['alias']:
+                    if x not in final:
+                        final.append(x)
+                elif 'bars' in y['alias']:
+                    if x not in final:
+                        final.append(x)
+                elif "markets" in y['alias']:
+                    if x not in final:
+                        final.append(x)
     elif weather < 70 and weather >= 50:
-        if 'restaurants' in x['categories']:
-            if x not in final:
-                final.append(x)
+        for x in biz:
+            for y in x['categories']:
+                if 'foodtrucks' in y['alias']:
+                    if x not in final:
+                        final.append(x)
+                    elif 'poke' in y['alias']:
+                        if x not in final:
+                            final.append(x)
     elif weather < 50 and weather >= 30:
         for x in biz:
-            if 'panasian' in x['categories']:
-                if x not in final:
-                    final.append(x)
-            elif 'asianfusion' in x['categories']:
-                if x not in final:
-                    final.append(x)
+            for y in x['categories']:
+                if "chinese" in y['alias']:
+                    if x not in final:
+                        final.append(x)
+                elif 'asianfusion' in y['alias']:
+                    if x not in final:
+                        final.append(x)
+                elif "noodles" in y['alias']:
+                    if x not in final:
+                        final.append(x)
     else:
         for x in biz:
-            if 'soup' in x['categories']:
-                if x not in final:
-                    final.append(x)
-            elif 'hotpot' in x['categories']:
-                if x not in finaal:
-                    final.append(x)
+            for y in x['categories']:
+                if "soup" in y['alias']:
+                    if x not in final:
+                        final.append(x)
+                elif 'hotpot' in y['alias']:
+                    if x not in final:
+                        final.append(x)
     return final
 
 
-'''give restaurants with takeout option'''
 def sort_by_takeout(weather, biz):
     final = []
     if weather <= 50:
@@ -58,8 +71,3 @@ def sort_by_takeout(weather, biz):
         for x in biz:
             final.append(x)
         return final
-
-
-'''
-Cut off extra restaurants - give limit
-'''
