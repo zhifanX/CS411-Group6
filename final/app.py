@@ -21,8 +21,8 @@ def results():
     temp = int(data['main']['temp'])
     weather = data["weather"][0]["main"]
     location = data["name"]
-    restaurant = ranking.sort_by_ranking(ranking.sort_by_takeout(yelp_api.businesses(radius, zip_code)))
-    for biz in restaurant: '''these are the 3 things that we return for restaurant: name, url, and rating'''
+    restaurant = ranking.sort_by_ranking(ranking.sort_by_weather(yelp_api.businesses(radius, zip_code)))
+    for biz in restaurant: 
         names.append(biz["name"])
         links.append(biz["url"])
         rating.append(biz['rating'])

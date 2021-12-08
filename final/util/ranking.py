@@ -1,4 +1,5 @@
-def sort_by_ranking(biz): '''quick sort'''
+'''quick sort'''
+def sort_by_ranking(biz):
     if biz == []:
         return []
     else:
@@ -7,7 +8,8 @@ def sort_by_ranking(biz): '''quick sort'''
         part_2 = sort_by_ranking([x for x in biz[1:] if x['rating'] <  piv['rating']])
         return part_1 + [piv] + part_2
 
-def sort_by_weather(weather, biz): '''types of restaurant/food based on weather brackets'''
+'''types of restaurant/food based on weather brackets'''
+def sort_by_weather(weather, biz):
     final = []
     if weather >= 70:
         for x in biz:
@@ -20,11 +22,11 @@ def sort_by_weather(weather, biz): '''types of restaurant/food based on weather 
             elif "markets" in x['categories']:
                 if x not in final:
                     final.append(x)
-    elif weather < 70 && weather >= 50: '''standard range with all foods'''
+    elif weather < 70 and weather >= 50:
         if 'restaurants' in x['categories']:
-            if x no in final:
+            if x not in final:
                 final.append(x)
-    elif weather < 50 && weather >= 30:
+    elif weather < 50 and weather >= 30:
         for x in biz:
             if 'panasian' in x['categories']:
                 if x not in final:
@@ -43,8 +45,8 @@ def sort_by_weather(weather, biz): '''types of restaurant/food based on weather 
     return final
 
 
-
-def sort_by_takeout(weather, biz): '''give restaurants with takeout option'''
+'''give restaurants with takeout option'''
+def sort_by_takeout(weather, biz):
     final = []
     if weather <= 50:
         for x in biz:
