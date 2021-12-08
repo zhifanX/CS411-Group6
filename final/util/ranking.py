@@ -9,9 +9,9 @@ def sort_by_ranking(biz):
         return part_1 + [piv] + part_2
 
 '''types of restaurant/food based on weather brackets'''
-def sort_by_weather(weather, biz):
+def sort_by_weather(temp, weather, biz):
     final = []
-    if weather >= 70:
+    if temp >= 70:
         for x in biz:
             for y in x['categories']:
                 if "icecream" in y['alias']:
@@ -26,16 +26,26 @@ def sort_by_weather(weather, biz):
                 elif "markets" in y['alias']:
                     if x not in final:
                         final.append(x)
-    elif weather < 70 and weather >= 50:
-        for x in biz:
-            for y in x['categories']:
-                if 'foodtrucks' in y['alias']:
-                    if x not in final:
-                        final.append(x)
-                    elif 'poke' in y['alias']:
+    elif temp < 70 and temp >= 50:
+        if weather == "Clear":
+            for x in biz:
+                for y in x['categories']:
+                    if 'foodtrucks' in y['alias']:
                         if x not in final:
                             final.append(x)
-    elif weather < 50 and weather >= 30:
+                        elif 'poke' in y['alias']:
+                            if x not in final:
+                                final.append(x)
+        else:
+            for x in biz:
+                for y in x['categories']:
+                    if 'acaibowls' in y['alias']:
+                        if x not in final:
+                            final.append(x)
+                        elif 'poke' in y['alias']:
+                            if x not in final:
+                                final.append(x)
+    elif temp < 50 and temp >= 30:
         for x in biz:
             for y in x['categories']:
                 if "chinese" in y['alias']:
