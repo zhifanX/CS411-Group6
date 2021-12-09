@@ -23,6 +23,9 @@ def sort_by_weather(temp, weather, biz):
                 elif 'bars' in y['alias']:
                     if x not in final:
                         final.append(x)
+                elif 'juicebars' in y['alias']:
+                    if x not in final:
+                        final.append(x)
                 elif "markets" in y['alias']:
                     if x not in final:
                         final.append(x)
@@ -54,9 +57,9 @@ def sort_by_weather(temp, weather, biz):
                         elif 'sushi' in y['alias']:
                             if x not in final:
                                 final.append(x)
-            if final == []:
-                for x in biz:
-                    final.append(x)
+        if final == []:
+            for x in biz:
+                final.append(x)
     elif temp < 50 and temp >= 30:
         for x in biz:
             for y in x['categories']:

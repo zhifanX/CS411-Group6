@@ -22,8 +22,8 @@ def results():
     weather = data["weather"][0]["main"]
     location = data["name"]
     restaurant = ranking.sort_by_ranking(ranking.sort_by_weather(temp, weather, yelp_api.businesses(radius, zip_code)))
-    print(restaurant)
     for biz in restaurant:
+        print(biz['categories'])
         names.append(biz["name"])
         links.append(biz["url"])
         rating.append(biz['rating'])
