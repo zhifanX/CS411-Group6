@@ -1,0 +1,5 @@
+Focus: Restaurants sorted by overall best rated restaurant in a list of weather recommended restaurants
+By default, the system will recommend the weather recommended restaurants sorted in descending order of ratings in the given zip code. 
+
+Exception 1: All nearby restaurants have low ratings 
+As a logged in user, if there are only low rated restaurants, the application will recommend the low rated restaurants. I should be able to see or choose from these restaurants. 
