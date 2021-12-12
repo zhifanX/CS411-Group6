@@ -1,0 +1,5 @@
+Focus: Selecting what to save to the database
+As a logged in user, after entering my zip code and getting a list of recommended restaurants, I should be able to choose what I would like saved in my database. 
+
+Exception 1: Choosing to save nothing  
+As a logged in user, if decide to add nothing to my database then nothing will be added. The database will remain empty until I decide to add something to it.
