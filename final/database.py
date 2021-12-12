@@ -13,7 +13,7 @@ def insert_fetch():
     cursor = conn.execute("SELECT name, description from res")
     for row in cursor:
         link.append(row[1])
-        print(row)
+        print("The restaurant is: "+row[0]+" .Its link is: " + row[1])
     conn.close()
     return
 
