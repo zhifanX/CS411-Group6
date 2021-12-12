@@ -7,7 +7,7 @@ def insert_fetch():
     cur = conn.cursor()
     cur.execute('CREATE TABLE res (name text, description text)')
 
-    cur.execute('INSERT INTO res (name, description) values ("ice", "http://")')
+    cur.execute('INSERT INTO res (name, description) values ("Coreanos", "https://www.yelp.com/biz/coreanos-allston-allston?osq=coreanos")')
     conn.commit()
 
     cursor = conn.execute("SELECT name, description from res")
