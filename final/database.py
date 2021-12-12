@@ -13,8 +13,9 @@ def insert_fetch():
     cursor = conn.execute("SELECT name, description from res")
     for row in cursor:
         link.append(row[1])
+        print(row)
     conn.close()
-    return (row[1])
+    return
 
 insert_fetch()
 
