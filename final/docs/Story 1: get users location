@@ -1,0 +1,5 @@
+Focus: Asks for user’s location
+As a logged in user, I should be able to get the list of recommendations based on the location I give.  I enter the zip code of my preferred location, which then gives me a list of recommended restaurants.
+
+Exception 1: Invalid Zip code
+As a logged in user the app should use my zip code to calculate its recommendations. If I enter a zip code outside of the United States in the application an error message should pop up saying that the zip code is invalid. If the zip code is mistyped, then the error message should also pop up saying that the zip code is invalid.
