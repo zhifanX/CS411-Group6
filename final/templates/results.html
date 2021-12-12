@@ -7,6 +7,12 @@
       box-sizing: border-box;
     }
 
+    #map{
+       height: 500px;
+       width: 100%;
+
+    }
+
     .row {
       margin-left:-5px;
       margin-right:-5px;
@@ -88,6 +94,35 @@
 </div>
 </div>
 
+  <div id="map"></div>
+
     </body>
+
+    <script>
+        function initMap(){
+            var location ={lat: {{lat_map}}, lng: {{long_map}}};
+
+            var map = new google.maps.Map(document.getElementById("map"),{
+                zoom: 13,
+                center: location
+            });
+
+            {% for x in marker%}
+
+              const marker = new google.maps.Marker({
+                position: {
+                  lat:  {{x['latitude']}},
+                  lng: {{x['longitude']}},
+                },
+                map: map,
+              });
+
+            {%endfor%}
+          }
+
+    </script>
+
+    <script async defer src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCk6dhiQP6MYBTNJnx4_nJn2c8g9_bESro&callback=initMap">
+    </script>
 
 </html>
