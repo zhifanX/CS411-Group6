@@ -5,9 +5,10 @@ from util import ranking
 from authlib.integrations.flask_client import OAuth
 from util import google
 import sqlite3
-import os
+import os.path
 
 currentdirectory = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(currentdirectory, "database.db")
 
 app = Flask(__name__)
 
@@ -75,29 +76,29 @@ def results():
         lat_map = biz['coordinates']['latitude']
         long_map = biz['coordinates']['longitude']
     length = len(restaurant)
-    '''
-    saved_name = request.form.get('saved_name')
-    print(request.form.get('saved_name'))
-    connection = sqlite3.connect(currentdirectory + "\database.db")
-    cursor = connection.cursor()
-    query1 = "INSERT INTO 'Saved Restaurants' VALUES('{n}','{l})'".format(n = saved_name, l = saved_name)
-    cursor.execute(query1)
-    connection.commit()
-    '''
+
     return render_template('results.html', location = location, temp = temp, weather = weather, restaurants = names, links = links, rating = rating, long_map = long_map, lat_map = lat_map, length = length, marker_lat = marker_lat, marker_lng = marker_lng, names = names)
 
 @app.route('/saved', methods = ['GET', 'POST'])
 def saved():
-    '''
-    name = request.args.get('saved_name')
-    connection = sqlite3.connect(currentdirectory + "\database.db")
-    cursor = connection.cursor()
-    query1 = "SELECT 'Yelp Link' from 'Saved Restaurants' WHERE 'Restaurant Name' = {n}".format(n = name)
+    saved_name = request.form.get('saved_name')
+    print(saved_name)
+    db = sqlite3.connect(db_path)
+    cursor = db.cursor()
+    query1 = "INSERT INTO Saved_Restaurants VALUES('{n}')".format(n = saved_name)
+    cursor.execute(query1)
+    db.commit()
+
+    db = sqlite3.connect(db_path)
+    cursor = db.cursor()
+    query1 = "SELECT yelp_link from Saved_Restaurants"
     result = cursor.execute(query1)
-    result = result.fetchall()[0][0]
+    result = result.fetchall()
+
     '''
     saved_name = request.form.get('saved_name')
-    return render_template('saved.html', saved_name = saved_name)
+    '''
+    return render_template('saved.html', saved_name = result)
 
 @app.route('/logout')
 def logout():

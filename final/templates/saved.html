@@ -8,9 +8,10 @@
       <tr>
         <th><h3> Saved Restaurants </h3></th>
       </tr>
-
-      <td><a href ='{{saved_name}}'> {{saved_name}}</a></td>
-
+      {% for x in saved_name %}
+      <tr>
+      <td><a href ='{{saved_name}}'> {{x}}</a></td>
+      {% endfor %}
   </tr>
   </table>
 
