@@ -82,7 +82,6 @@ def results():
 @app.route('/saved', methods = ['GET', 'POST'])
 def saved():
     saved_name = request.form.get('saved_name')
-    print(saved_name)
     db = sqlite3.connect(db_path)
     cursor = db.cursor()
     query1 = "INSERT INTO Saved_Restaurants VALUES('{n}')".format(n = saved_name)
@@ -94,6 +93,7 @@ def saved():
     query1 = "SELECT yelp_link from Saved_Restaurants"
     result = cursor.execute(query1)
     result = result.fetchall()
+    print(result)
 
     '''
     saved_name = request.form.get('saved_name')
