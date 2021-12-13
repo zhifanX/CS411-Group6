@@ -4,6 +4,10 @@ from util import yelp_api
 from util import ranking
 from authlib.integrations.flask_client import OAuth
 from util import google
+import sqlite3
+import os
+
+currentdirectory = os.path.dirname(os.path.abspath(__file__))
 
 app = Flask(__name__)
 
@@ -51,6 +55,8 @@ def results():
     links = []
     rating = []
     marker = []
+    marker_lat = []
+    marker_lng = []
     zip_code = request.form['zipcode']
     radius = request.form['radius']
     api_key = weather_api.get_api_key()
@@ -60,14 +66,38 @@ def results():
     location = data["name"]
     restaurant = ranking.sort_by_ranking(ranking.sort_by_weather(temp, weather, yelp_api.businesses(radius, zip_code)))
     for biz in restaurant:
-        print(biz['categories'])
         names.append(biz["name"])
         links.append(biz["url"])
         rating.append(biz['rating'])
         marker.append(biz['coordinates'])
+        marker_lat.append(biz['coordinates']['latitude'])
+        marker_lng.append(biz['coordinates']['longitude'])
         lat_map = biz['coordinates']['latitude']
         long_map = biz['coordinates']['longitude']
-    return render_template('results.html', location = location, temp = temp, weather = weather, restaurants = names, links = links, rating = rating, long_map = long_map, lat_map = lat_map, marker = marker)
+    length = len(restaurant)
+    '''
+    saved_name = request.form.get('saved_name')
+    print(request.form.get('saved_name'))
+    connection = sqlite3.connect(currentdirectory + "\database.db")
+    cursor = connection.cursor()
+    query1 = "INSERT INTO 'Saved Restaurants' VALUES('{n}','{l})'".format(n = saved_name, l = saved_name)
+    cursor.execute(query1)
+    connection.commit()
+    '''
+    return render_template('results.html', location = location, temp = temp, weather = weather, restaurants = names, links = links, rating = rating, long_map = long_map, lat_map = lat_map, length = length, marker_lat = marker_lat, marker_lng = marker_lng, names = names)
+
+@app.route('/saved', methods = ['GET', 'POST'])
+def saved():
+    '''
+    name = request.args.get('saved_name')
+    connection = sqlite.connect(currentdirectory + "\database.db")
+    cursor = connection.cursor()
+    query1 = "SELECT 'Yelp Link' from 'Saved Restaurants' WHERE 'Restaurant Name' = {n}".format(n = name)
+    result = cursor.execute(query1)
+    result = result.fetchall()[0][0]
+    '''
+    saved_name = request.form.get('saved_name')
+    return render_template('saved.html', saved_name = saved_name)
 
 @app.route('/logout')
 def logout():

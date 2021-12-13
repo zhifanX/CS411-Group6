@@ -20,7 +20,7 @@
 
     .column {
       float: left;
-      width: 33%;
+      width: 25%;
       padding: 5px;
     }
 
@@ -54,14 +54,29 @@
     </center>
 
   <div class = "row">
+
+    <div class="column">
+       <form method = "POST" action = "/saved">
+    <h3> <br>Save <br> </h3>
+
+           {% for name in links%}
+          <input type="checkbox"value="{{name}}"  name=saved_name ><br><br><br>
+         {% endfor %}
+
+     <br>
+     <input type="submit">
+   </form>
+    </div>
+
+
  <div class="column">
     <table>
       <tr>
-        <th><h3>  Restaurant Names </h3></th>
+        <th><h4>  Restaurant Names </h3></th>
       </tr>
       {% for row in restaurants%}
       <tr>
-      <td>{{row}} </td>
+      <td><small>{{row}} </small></td>
       {% endfor %}
   </tr>
   </table>
@@ -107,18 +122,22 @@
                 center: location
             });
 
-            {% for x in marker%}
-
+            for (let i = 0; i < {{length}}; ++i)  {
+            var name_of = "{{name}}"
               const marker = new google.maps.Marker({
                 position: {
-                  lat:  {{x['latitude']}},
-                  lng: {{x['longitude']}},
+                  lat: {{marker_lat}}[i],
+                  lng: {{marker_lng}}[i],
                 },
                 map: map,
               });
 
-            {%endfor%}
+
+
+
           }
+        }
+
 
     </script>
 
