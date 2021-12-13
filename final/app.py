@@ -90,7 +90,7 @@ def results():
 def saved():
     '''
     name = request.args.get('saved_name')
-    connection = sqlite.connect(currentdirectory + "\database.db")
+    connection = sqlite3.connect(currentdirectory + "\database.db")
     cursor = connection.cursor()
     query1 = "SELECT 'Yelp Link' from 'Saved Restaurants' WHERE 'Restaurant Name' = {n}".format(n = name)
     result = cursor.execute(query1)
