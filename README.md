@@ -26,7 +26,10 @@ Werkzeug==1.0.0
 
 Authlib Flask (pip install Authlib Flask)
 
-Requests (pip install requests)
+Requests 
+```
+pip install requests
+```
 
 Google credentials (AOuth client Id from console.cloud.google.com)
 
@@ -41,14 +44,23 @@ Google Map API:
 https://maps.googleapis.com
 
 - Enter key information under respective title in config.ini file. 
-- For Google Map API, insert API key and link into results.html file under the script section labeled <script asyn defer src = [add link here]>
+- For Google Map API, insert API key and link into results.html file under the script section labeled 
+```
+<script asyn defer src = [add link here]>
+```
 
 # Running application
 - Install pip through instructions found here: https://pip.pypa.io/en/stable/installation/
 - Install virual environment through instructions found here: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
 - Install package requirements:
     - Necessary packages can be found on top of app.py file and python files within util
+```
+pip install authlib
+```
 - Install flask through instructions found here: https://flask.palletsprojects.com/en/2.0.x/installation/
+``` 
+pip install flask
+```
 - Clone the following repo into your virtual environment
 - Enter into file labeled "final"
     - Run app by typing in 
