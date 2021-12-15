@@ -22,4 +22,10 @@ MarkupSafe==1.1.1
 
 Werkzeug==1.0.0
 
+##OAuth
 
+Authlib Flask (pip install Authlib Flask)
+
+Requests (pip install requests)
+
+Google credentials (AOuth client Id from console.cloud.google.com)
