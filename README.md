@@ -3,7 +3,7 @@ Team Members: Saisreya Gunturu, Zhifan Xue, Yuyang Zhang, Chi Ling Yeung
 # Final Project Demo
 [Click here](https://drive.google.com/file/d/1Pk0GHcVywG__QOkisT5ko84yzXEvulIl/view?usp=sharing)
 
-* Final code and documents can be found in folder labeld "final"
+* Final code and documents can be found in folder labeled "final"
 
 # Overview:
 
