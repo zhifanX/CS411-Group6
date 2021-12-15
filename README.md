@@ -64,7 +64,7 @@ pip install flask
 - Clone the following repo into your virtual environment
 - Enter into file labeled "final"
     - Run app by typing in 
-    ```
-    python app.py
-    ```
+```
+python app.py
+```
   
