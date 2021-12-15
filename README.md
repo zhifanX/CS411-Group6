@@ -51,5 +51,8 @@ https://maps.googleapis.com
 - Install flask through instructions found here: https://flask.palletsprojects.com/en/2.0.x/installation/
 - Clone the following repo into your virtual environment
 - Enter into file labeled "final"
-    - Run app by typing in python app.py
+    - Run app by typing in 
+    '''
+    python app.py
+    '''
   
